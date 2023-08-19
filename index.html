@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geometry Genius</title>
+    <!-- Tailwind CSS and daisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="max-w-6xl mx-auto">
+    <!-- Header Section -->
+    <header class="px-3 lg:px-0 mb-10 lg:mb-20">
+      <div
+        class="bg-[rgba(16,144,216,0.10)] p-5 mt-5 rounded-lg flex justify-between items-center"
+      >
+        <h3 class="text-xl lg:text-3xl font-medium text-[rgba(17,17,17,0.60)]">
+          <span class="text-2xl lg:text-5xl text-[#111111] font-bold"
+            >Interactive</span
+          >
+          <br />
+          Geometry Genius
+        </h3>
+        <button class="btn btn-primary">Blog</button>
+      </div>
+    </header>
+    <main>
+      <section
+        class="px-3 lg:px-0 mb-8 lg:mb-15 flex flex-col lg:flex-row gap-10"
+      >
+        <!-- Geometry Shape -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <!-- Card-1 Triangle -->
+          <div
+            class="card card-compact lg:w-72 bg-base-100 shadow-2xl p-5 space-y-3 text-center rounded-lg"
+          >
+            <figure class="h-[155px] items-center">
+              <img src="images/triangle.png" class="h-[155px]" alt="Triangle" />
+            </figure>
+            <div class="card-body">
+              <h2 class="font-bold text-2xl text-[#414141]">Triangle</h2>
+              <p class="text-base">Area (A) = 0.5 X b X h</p>
+              <p>
+                <input
+                  id="triangle-base"
+                  class="w-20 bg-[#F1F1F1] rounded-md px-2 text-base"
+                  type="text"
+                  placeholder="base"
+                />
+                cm
+                <input
+                  id="triangle-height"
+                  class="w-20 bg-[#F1F1F1] rounded-md px-2 text-base"
+                  type="text"
+                  placeholder="height"
+                />
+                cm
+              </p>
+              <p class="text-base">
+                Area : <span id="triangle-display">0</span> cm<sup>2</sup>
+              </p>
+              <div class="card-actions">
+                <button
+                  id="triangle-btn"
+                  onclick="triangleCalculator()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card-2 Rectangle -->
+          <div
+            class="card card-compact lg:w-72 bg-base-100 shadow-2xl p-5 space-y-3 text-center rounded-lg"
+          >
+            <figure class="rounded-none h-[155px] items-center">
+              <img
+                src="images/rectangle.png"
+                class="h-[155px]"
+                alt="Rectangle"
+                class=""
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="font-bold text-2xl text-[#414141]">Rectangle</h2>
+              <p class="text-base">Area (A) = w X l</p>
+              <p>
+                <input
+                  id="rectangle-width"
+                  class="w-20 bg-[#F1F1F1] rounded-md px-2 text-base"
+                  type="text"
+                  placeholder="width"
+                />
+                cm
+                <input
+                  id="rectangle-length"
+                  class="w-20 bg-[#F1F1F1] rounded-md px-2 text-base"
+                  type="text"
+                  placeholder="length"
+                />
+                cm
+              </p>
+              <p class="text-base">
+                Area : <span id="rectangle-display">0</span> cm<sup>2</sup>
+              </p>
+              <div class="card-actions">
+                <button
+                  id="rectangle-btn"
+                  onclick="rectangleCalculator()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card-3 Parallelogram -->
+          <div
+            class="card card-compact lg:w-72 bg-base-100 shadow-2xl p-5 space-y-3 text-center rounded-lg"
+          >
+            <figure class="rounded-none items-center h-[155px]">
+              <img
+                src="images/parallelogram.png"
+                alt="Parallelogram"
+                class="h-[155px]"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="font-bold text-2xl text-[#414141]">Parallelogram</h2>
+              <p class="text-base">Area (A) = b X h</p>
+              <p>
+                <input
+                  id="parallelogram-base"
+                  class="w-20 bg-[#F1F1F1] rounded-md px-2 text-base"
+                  type="text"
+                  placeholder="base"
+                />
+                cm
+                <input
+                  id="parallelogram-height"
+                  class="w-20 bg-[#F1F1F1] rounded-md px-2 text-base"
+                  type="text"
+                  placeholder="height"
+                />
+                cm
+              </p>
+              <p class="text-base">
+                Area : <span id="parallelogram-display">0</span> cm<sup>2</sup>
+              </p>
+              <div class="card-actions">
+                <button
+                  id="rectangle-btn"
+                  onclick="parallelogramCalculator()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-[rgba(17,17,17,0.80)] text-xl underline font-bold">
+            Area Calculation
+          </h2>
+          <p>Area : <span id="display-area">0</span> cm <sup>2</sup></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- JS -->
+    <script src="scripts/area-calculator.js"></script>
+  </body>
+</html>
